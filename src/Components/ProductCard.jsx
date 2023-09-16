@@ -1,6 +1,19 @@
-import React from 'react'
+import React, { useState } from 'react'
 
 export default function ProductCard(props) {
+  const [count, setCount] = useState(0) ;
+  const increaseVal =() => setCount (count+1)
+  const decreaseVal =() => setCount (count-1)
+
+//   const decreaseVal =() => {
+//   if (count>0) {
+//     setCount (count-1)
+
+//   }
+//   else { 
+//     setCount(0)
+//   }
+// }
   return (
     <div className='col-md-3'>
     <div className="card" >
@@ -15,9 +28,26 @@ export default function ProductCard(props) {
       {props.categoryName}
     </a>
   </div>
+
+  <div className="container text-center">
+    {
+    count>0 ? (
+      <>
+           <button className="btn-btn-dark mx-2" onClick={increaseVal}>+</button>
+           {count}
+            <button className="btn-btn-dark mx-2" onClick={decreaseVal}>-</button>
+        </>
+    ) :(<button className="btn-btn-dark mx-2" onClick={increaseVal}>Add To Cart</button>)
+}
+        <div>
+       
+            </div>
+    </div>
 </div>
 
     
     </div>
+
+    
   )
 }
